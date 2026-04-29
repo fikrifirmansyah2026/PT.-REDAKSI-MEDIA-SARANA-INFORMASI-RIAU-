@@ -1,71 +1,171 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Jurnalis - Media Journal</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* HEADER */
+header {
+  background: #111;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+/* CONTAINER */
+.container {
+  padding: 15px;
+}
+
+/* FORM */
+.form-box {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.delete-btn {
+  background: red;
+  margin-top: 10px;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Navbar (opsional, sama seperti halaman lain) -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a class="brand" href="index.html">Media Journal</a>
+<header>
+  <h2>Dashboard Admin Berita</h2>
+</header>
 
-            <ul class="nav-menu">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="#">Profil</a></li>
-            </ul>
+<div class="container">
 
-            <a href="#" class="btn-logout">Logout</a>
+  <!-- FORM TAMBAH BERITA -->
+  <div class="form-box">
+    <h3>Tambah Berita</h3>
+
+    <input type="text" id="judul" placeholder="Judul berita">
+    
+    <select id="kategori">
+      <option>Nasional</option>
+      <option>Daerah</option>
+      <option>Politik</option>
+      <option>Ekonomi</option>
+    </select>
+
+    <input type="text" id="gambar" placeholder="Link gambar (https://...)">
+
+    <textarea id="deskripsi" placeholder="Isi berita"></textarea>
+
+    <button onclick="tambahBerita()">Simpan Berita</button>
+  </div>
+
+  <!-- LIST BERITA -->
+  <div id="listBerita"></div>
+
+</div>
+
+<script>
+let dataBerita = JSON.parse(localStorage.getItem("berita")) || [];
+
+function renderBerita() {
+  const container = document.getElementById("listBerita");
+  container.innerHTML = "";
+
+  dataBerita.forEach((item, index) => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${item.gambar}" onerror="this.src='https://source.unsplash.com/600x400/?news'">
+        <div class="card-content">
+          <b>${item.judul}</b>
+          <p><small>${item.kategori}</small></p>
+          <p>${item.deskripsi}</p>
+          <button class="delete-btn" onclick="hapusBerita(${index})">Hapus</button>
         </div>
-    </nav>
+      </div>
+    `;
+  });
+}
 
-    <!-- DASHBOARD -->
-    <section class="dashboard">
+function tambahBerita() {
+  const judul = document.getElementById("judul").value;
+  const kategori = document.getElementById("kategori").value;
+  const gambar = document.getElementById("gambar").value;
+  const deskripsi = document.getElementById("deskripsi").value;
 
-        <h1>Dashboard Jurnalis</h1>
-        <p>Kelola artikel, buat berita baru, dan pantau aktivitas Anda.</p>
+  if (!judul || !deskripsi) {
+    alert("Isi judul dan deskripsi!");
+    return;
+  }
 
-        <a href="#" class="btn-tambah">+ Tambah Artikel Baru</a>
+  dataBerita.unshift({ judul, kategori, gambar, deskripsi });
 
-        <table class="dashboard-table">
-            <thead>
-                <tr>
-                    <th>Judul Artikel</th>
-                    <th>Tanggal</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
+  localStorage.setItem("berita", JSON.stringify(dataBerita));
 
-            <tbody>
-                <tr>
-                    <td>Judul Contoh Artikel 1</td>
-                    <td>25 Jan 2025</td>
-                    <td>Dipublikasikan</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Hapus</button>
-                    </td>
-                </tr>
+  document.getElementById("judul").value = "";
+  document.getElementById("gambar").value = "";
+  document.getElementById("deskripsi").value = "";
 
-                <tr>
-                    <td>Artikel Draft Contoh</td>
-                    <td>24 Jan 2025</td>
-                    <td>Draft</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Hapus</button>
-                    </td>
-                </tr>
+  renderBerita();
+}
 
-            </tbody>
-        </table>
+function hapusBerita(index) {
+  dataBerita.splice(index, 1);
+  localStorage.setItem("berita", JSON.stringify(dataBerita));
+  renderBerita();
+}
 
-    </section>
+renderBerita();
+</script>
 
 </body>
-              </html>
+    </html>
