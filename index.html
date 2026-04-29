@@ -1,232 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV. REDAKSI MEDIA SARANA INFORMASI RIAU App</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Sarana Informasi Riau</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* HEADER */
+header {
+  background: #111;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+/* MENU */
+nav {
+  background: #007bff;
+  display: flex;
+  overflow-x: auto;
+}
+
+nav a {
+  color: white;
+  padding: 12px 15px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background: #0056b3;
+}
+
+/* CONTAINER */
+.container {
+  padding: 15px;
+}
+
+/* CARD BERITA */
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.category {
+  color: #007bff;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.desc {
+  color: #555;
+  font-size: 14px;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+</style>
 </head>
-<body>
+
 <body>
 
-<!-- LOGO DI ATAS NAVBAR -->
-<div class="top-logo">
-    <!-- Tempel SVG LOGO di sini -->
-</div>
+<header>
+  <h2>CV. REDAKSI MEDIA SARANA INFORMASI RIAU</h2>
+  <p>Terpercaya & Akurat</p>
+</header>
 
 <nav>
+  <a href="#">Beranda</a>
+  <a href="#">Berita</a>
+  <a href="#">Kategori</a>
+  <a href="#">Opini</a>
+  <a href="#">Tentang</a>
+  <a href="#">Login</a>
 </nav>
 
-    <header class="hero">
-        <h1 class="logo">CV. REDAKSI MEDIA SARANA INFORMASI RIAU</h1>
-        <p class="tagline">Redaksi Media Sarana Informasi Riau, Terpercaya & Akurat</p>
-    </header> <nav class="navbar">
-    <div class="nav-container">
+<div class="container">
 
-        <div class="nav-left">
-            <a href="#" class="brand">Media Journal</a>
-        </div>
-
-        <ul class="nav-menu">
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Berita</a></li>
-            <li><a href="#">Kategori</a></li>
-            <li><a href="#">Opini</a></li>
-            <li><a href="#">Tentang</a></li>
-        </ul>
-
-        <div class="nav-right">
-            <a href="#" class="btn-login">Login</a>
-        </div>
-
+  <div class="card">
+    <img src="https://source.unsplash.com/600x400/?news" alt="news">
+    <div class="card-content">
+      <div class="category">Nasional</div>
+      <div class="title">Breaking News: Pemerintah Umumkan Kebijakan Baru</div>
+      <div class="desc">Kebijakan baru ini diprediksi berdampak besar pada ekonomi dalam jangka pendek...</div>
     </div>
-</nav>
-</nav>
-<!-- NEWS TICKER -->
-<div class="news-ticker">
-    <span class="label">Breaking News</span>
-    <marquee behavior="scroll" direction="left" scrollamount="4">
-        SELAMAT DATANG DI CV. REDAKSI MEDIA SARANA INFORMASI RIAU ( Menyediakan Informasi Terpercaya, Cepat, Independent & Akurat ) 
-    </marquee>
+  </div>
+
+  <div class="card">
+    <img src="https://source.unsplash.com/600x400/?city" alt="news">
+    <div class="card-content">
+      <div class="category">Daerah</div>
+      <div class="title">Perkembangan Kota Selatpanjang</div>
+      <div class="desc">Pembangunan infrastruktur semakin meningkat...</div>
+    </div>
+  </div>
+
 </div>
-<!-- ====================== HERO SLIDER ====================== -->
-<section class="hero-slider">
 
-    <div class="slider">
-
-        <!-- Slide 1 -->
-        <div class="slide active">
-            <img src="img/headline1.jpg" class="slide-img">
-            <div class="slide-caption">
-                <a class="slide-category">Nasional</a>
-                <h2 class="slide-title">Breaking News: Pemerintah Umumkan Kebijakan Baru</h2>
-                <p class="slide-desc">Kebijakan baru ini diprediksi berdampak besar pada ekonomi dalam jangka pendek...</p>
-            </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide">
-            <img src="img/headline2.jpg" class="slide-img">
-            <div class="slide-caption">
-                <a class="slide-category">Teknologi</a>
-                <h2 class="slide-title">AI Generasi Baru Resmi Diluncurkan</h2>
-                <p class="slide-desc">Perkembangan terbaru dalam kecerdasan buatan membawa inovasi luar biasa...</p>
-            </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="slide">
-            <img src="img/headline3.jpg" class="slide-img">
-            <div class="slide-caption">
-                <a class="slide-category">Internasional</a>
-                <h2 class="slide-title">KTT Global Bahas Perubahan Iklim</h2>
-                <p class="slide-desc">Para pemimpin dunia berkumpul untuk mencari solusi terhadap isu iklim...</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Tombol Navigasi -->
-    <button class="slider-btn prev">❮</button>
-    <button class="slider-btn next">❯</button>
-
-</section>
-<!-- ========================================================== -->
-<!-- SECTION: BERITA TERBARU -->
-<section class="home-news">
-
-    <h2 class="section-title">Berita Terbaru</h2>
-
-    <div class="news-list">
-
-        <!-- CARD BERITA -->
-        <article class="news-card">
-            <img src="img/berita1.jpg" class="news-thumb">
-            <div class="news-content">
-                <a href="#" class="news-category">Nasional</a>
-                <h3 class="news-title">Judul Berita Utama Hari Ini</h3>
-                <p class="news-desc">Ringkasan singkat isi berita ini, cukup 2–3 baris untuk membuat pengguna ingin membaca lebih lanjut...</p>
-                <span class="news-meta">01 Feb 2025 • Admin</span>
-            </div>
-        </article>
-
-        <article class="news-card">
-            <img src="img/berita2.jpg" class="news-thumb">
-            <div class="news-content">
-                <a href="#" class="news-category">Teknologi</a>
-                <h3 class="news-title">Perkembangan AI dan Dampaknya di Masa Depan</h3>
-                <p class="news-desc">Artikel ini membahas tren terbaru dalam kecerdasan buatan serta tantangan yang akan datang...</p>
-                <span class="news-meta">31 Jan 2025 • Editor</span>
-            </div>
-        </article>
-
-        <article class="news-card">
-            <img src="img/berita3.jpg" class="news-thumb">
-            <div class="news-content">
-                <a href="#" class="news-category">Ekonomi</a>
-                <h3 class="news-title">Harga Bahan Pokok Mengalami Kenaikan</h3>
-                <p class="news-desc">Banyak faktor yang mempengaruhi naiknya harga bahan pokok menjelang musim hujan...</p>
-                <span class="news-meta">30 Jan 2025 • Reporter</span>
-            </div>
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ============ ARTIKEL ============ -->
-<section class="article-container">
-
-    <h1 class="article-title">Judul Artikel Utama di Sini</h1>
-
-    <div class="article-meta">
-        <span>Penulis: <b>Nama Jurnalis</b></span> • 
-        <span>Dipublikasikan: 25 Januari 2025</span>
-    </div>
-
-    <img src="assets/images/contoh-berita.jpg" alt="Gambar Artikel" class="article-image">
-
-    <div class="article-content">
-        <p>
-            Ini adalah paragraf pertama dari artikel. Paragraf ini biasanya berisi
-            ringkasan atau pengantar mengenai isi berita.
-        </p>
-
-        <p>
-            Paragraf berikutnya berisi detail lengkap dari isi berita, analisis,
-            kutipan narasumber, data, dan informasi pendukung lainnya.
-        </p>
-
-        <h2>Subjudul Artikel</h2>
-
-        <p>
-            Pembahasan lanjutan dengan penjelasan lebih dalam dan terstruktur.
-        </p>
-    </div>
-
-</section>
-<!-- == <!-- HERO SLIDER -->
-<section class="hero-slider">
-    <h2 class="hero-title">Headline</h2>
-    <hr class="hero-divider">
-
-    <div class="slider-container">
-        <div class="slide active">
-            <h3 class="slide-title">Judul Headline Utama Hari Ini</h3>
-            <p class="slide-text">Deskripsi singkat berita utama yang tampil minimalis.</p>
-            <button class="slide-btn">BACA SELENGKAPNYA</button>
-        </div>
-
-        <div class="slide">
-            <h3 class="slide-title">Berita Penting Kedua</h3>
-            <p class="slide-text">Informasi ringkas berita nomor dua.</p>
-            <button class="slide-btn">BACA SELENGKAPNYA</button>
-        </div>
-
-        <div class="slide">
-            <h3 class="slide-title">Update Berita Ketiga</h3>
-            <p class="slide-text">Ringkasan headline ketiga.</p>
-            <button class="slide-btn">BACA SELENGKAPNYA</button>
-        </div>
-    </div>
-
-    <div class="slider-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-</section>== -->
-
-<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
-
-  <!-- Sinyal -->
-  <g fill="none" stroke="#1E6BB8" stroke-width="4">
-    <path d="M20 60c0-12 10-22 22-22"/>
-    <path d="M20 60c0-18 14-32 32-32"/>
-    <path d="M20 60c0-25 18-45 40-45"/>
-  </g>
-
-  <!-- Siluet peta Riau -->
-  <path d="M85 70c-6 -8 -8 -18 -4 -26c3 -6 10 -10 16 -11c5 5 10 8 14 13c4 6 3 14 -1 20c-5 7 -14 9 -25 4z"
-        fill="#9E9E9E"/>
-
-  <!-- Pena (nib) -->
-  <path d="M100 25h25v20l-12 18l-13 -18z" fill="#1E6BB8"/>
-  <circle cx="112" cy="58" r="3" fill="white"/>
-
-  <!-- Garis bawah pena -->
-  <path d="M112 60v20" stroke="#1E6BB8" stroke-width="3" />
-
-  <!-- Teks -->
-  <text x="140" y="50" font-size="20" font-weight="700" fill="#1E4599">
-    CV. REDAKSI MEDIA
-  </text>
-
-  <text x="140" y="75" font-size="16" font-weight="600" fill="#000">
-    SARANA INFORMASI RIAU
-  </text>
-
-</svg>
+<footer>
+  ©Media Sarana Informasi Riau 2026
+</footer>
 
 </body>
-  </html>
+    </html>
